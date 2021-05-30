@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "1b0106f5-b232-4fa1-a87d-b8d41f99b4e3",
+		"name": "Monday.com2Salesforce",
+		"description": "This is a collection of Monday.com GraphQL calls to manipulate data.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Call to Board Client Test top level with Item id for column values",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjkzMTI3NDgyLCJ1aWQiOjE2MDM0NTQ4LCJpYWQiOiIyMDIwLTEyLTA5VDE4OjM3OjE1LjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.wv1lJRbNT9QkYQ9lOw5fTlE8_zqxuPQb0U3abyOyQV0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n      boards(ids: 887415581 ){\n            items(limit: 2099){\n                   name\n                   id\n                   column_values {\n                    id\n                    value\n                    text\n                    title\n                    type\n                 }\n            }\n        }\n      }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.monday.com/v2/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monday",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					]
+				},
+				"description": "Call to Board Client Test top level with Item ID for updates."
+			},
+			"response": []
+		},
+		{
+			"name": "Update multiple fields",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjkzMTI3NDgyLCJ1aWQiOjE2MDM0NTQ4LCJpYWQiOiIyMDIwLTEyLTA5VDE4OjM3OjE1LjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.wv1lJRbNT9QkYQ9lOw5fTlE8_zqxuPQb0U3abyOyQV0"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\nchange_multiple_column_values (board_id: 887415581, item_id: 887415649, column_values: \"{\\\"numbers_16\\\": \\\" 42\\\" , \\\"numbers\\\": \\\"5\\\"}\") {\nid\n}\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.monday.com/v2/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monday",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					]
+				},
+				"description": "Updating both the Accelerate hours and Hours spent on the Add Salesforce account link."
+			},
+			"response": []
+		},
+		{
+			"name": "Update single field",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjkzMTI3NDgyLCJ1aWQiOjE2MDM0NTQ4LCJpYWQiOiIyMDIwLTEyLTA5VDE4OjM3OjE1LjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.wv1lJRbNT9QkYQ9lOw5fTlE8_zqxuPQb0U3abyOyQV0"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\nchange_column_value (board_id: 887415581, item_id: 887415649, column_id: \"numbers_16\", value: \"12.00\") {\nid\n}\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.monday.com/v2/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monday",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					]
+				},
+				"description": "Update one field on the Add Salesforce account link item."
+			},
+			"response": []
+		},
+		{
+			"name": "Update single fields with variables",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjkzMTI3NDgyLCJ1aWQiOjE2MDM0NTQ4LCJpYWQiOiIyMDIwLTEyLTA5VDE4OjM3OjE1LjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.wv1lJRbNT9QkYQ9lOw5fTlE8_zqxuPQb0U3abyOyQV0"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation change_column_value($numbers_16: String! $num16value: JSON!) {\n         change_column_value (board_id: 887415581, item_id: 887415649 column_id: $numbers_16 , value: $num16value) {\n    id\n  }\n}",
+						"variables": "{\n\"numbers_16\":\"numbers_16\",\n\"num16value\":\"32\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.monday.com/v2/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monday",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create item on Monday.com Board",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjkzMTI3NDgyLCJ1aWQiOjE2MDM0NTQ4LCJpYWQiOiIyMDIwLTEyLTA5VDE4OjM3OjE1LjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.wv1lJRbNT9QkYQ9lOw5fTlE8_zqxuPQb0U3abyOyQV0"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\ncreate_item (board_id: 887415581, item_name: \"New entry PostMan\")\n {\nid\n}\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.monday.com/v2/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monday",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					]
+				},
+				"description": "When creating a item on an existing board, it will take on the existing columns."
+			},
+			"response": []
+		},
+		{
+			"name": "Update multiple fields with variables",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjkzMTI3NDgyLCJ1aWQiOjE2MDM0NTQ4LCJpYWQiOiIyMDIwLTEyLTA5VDE4OjM3OjE1LjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.wv1lJRbNT9QkYQ9lOw5fTlE8_zqxuPQb0U3abyOyQV0"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation change_multiple__column_values($AccelAll: JSON!) {\n         change_multiple_column_values(board_id: 887415581, item_id: 887415649 column_values: $AccelAll            ) {\n    id\n  }\n}",
+						"variables": "{\n\"AccelAll\": \"{\\\"numbers_16\\\": \\\" 42\\\" , \\\"numbers\\\": \\\"5\\\"}\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.monday.com/v2/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monday",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update multiple fields with variables",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjkzMTI3NDgyLCJ1aWQiOjE2MDM0NTQ4LCJpYWQiOiIyMDIwLTEyLTA5VDE4OjM3OjE1LjAwMFoiLCJwZXIiOiJtZTp3cml0ZSJ9.wv1lJRbNT9QkYQ9lOw5fTlE8_zqxuPQb0U3abyOyQV0"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation change_multiple__column_values($AccelAll: JSON!) {\n         change_multiple_column_values(board_id: 887415581, item_id: 887415649 column_values: $AccelAll            ) {\n    id\n  }\n}",
+						"variables": "{\n\"AccelAll\": \"{\\\"numbers_16\\\": \\\" 32\\\" , \\\"numbers\\\": \\\"13\\\"}\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.monday.com/v2/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monday",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					]
+				},
+				"description": "Use Python request call structure for apex."
+			},
+			"response": []
+		}
+	]
+}
